@@ -1,0 +1,37 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "guest_checkout_audit",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"url\": \"https://healthspan.assurecraft.org\", \"prd\": \"# Guest Checkout Flow\\nAs a guest user, I can view items, select shipping options, and click try simulator to proceed to guest details.\"}"
+          }
+        ]
+      }
+    },
+    {
+      "eval_case_id": "logged_in_dashboard_audit",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"url\": \"https://healthspan.assurecraft.org\", \"prd\": \"# Logged-In User Dashboard\\nAs a logged-in user, I can view my profile data, change my language settings, and navigate home.\"}"
+          }
+        ]
+      }
+    },
+    {
+      "eval_case_id": "edge_case_inputs_audit",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"url\": \"https://healthspan.assurecraft.org\", \"prd\": \"# Age Input Boundaries\\nThe current age field must reject values less than 18 or greater than 100. It must accept exact boundary values 18 and 100.\"}"
+          }
+        ]
+      }
+    }
+  ]
+}
