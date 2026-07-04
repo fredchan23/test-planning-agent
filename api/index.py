@@ -5,6 +5,12 @@ import traceback
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 try:
+    import litellm
+    litellm_status = "LiteLLM imported successfully"
+except Exception as e:
+    litellm_status = f"LiteLLM Import Failed:\n{traceback.format_exc()}"
+
+try:
     from test_planner_agent.app import app as _app
 except Exception as e:
     _app = None
@@ -22,5 +28,5 @@ async def app(scope, receive, send):
             })
             await send({
                 'type': 'http.response.body',
-                'body': f"<h1>App Import Error</h1><pre>{error_trace}</pre>".encode('utf-8'),
+                'body': f"<h1>App Import Error</h1><pre>{error_trace}</pre><h2>LiteLLM Status</h2><pre>{litellm_status}</pre>".encode('utf-8'),
             })
