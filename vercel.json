@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "test_planner_agent/app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "test_planner_agent/app.py"
+    }
+  ]
+}

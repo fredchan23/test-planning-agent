@@ -99,3 +99,5 @@ Thumbs.db
 
 # Project specific evaluation / trace artifacts
 artifacts/
+docs/nvidia-deepseekpro-endpoint.md
+docs/nvidia-gemma4-endpoint.md

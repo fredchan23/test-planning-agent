@@ -81,6 +81,15 @@ GOOGLE_GENAI_USE_ENTERPRISE="False"
 GEMINI_API_KEY="your-gemini-api-key"
 ```
 
+#### C. If using NVIDIA NIM Endpoints (DeepSeek/Gemma 4)
+The agent is currently configured to use `openai/deepseek-ai/deepseek-v4-pro` via NVIDIA NIM endpoints. You can change this behavior or the model by editing `test_planner_agent/config.py`.
+Provide your NVIDIA API Key via the `.env` file or export it:
+```env
+NVIDIA_API_KEY="your-nvidia-api-key"
+NVIDIA_API_BASE="https://integrate.api.nvidia.com/v1"
+```
+To switch to Gemma 4, update `MODEL_NAME` in `config.py` to `openai/google/gemma-4-31b-it` and set `chat_template_kwargs={"enable_thinking": True}` in `agent.py`.
+
 ---
 
 ## 🏃 Running the Agent
@@ -122,6 +131,13 @@ uv sync --extra eval
 # Run agent evaluations
 acli eval run
 ```
+
+### Deploying to Vercel
+The frontend is configured to be deployed as a Serverless Function on Vercel. 
+1. Push this repository to GitHub, GitLab, or Bitbucket.
+2. Import the repository into Vercel.
+3. In the Vercel project settings, configure the **Environment Variables** (e.g. `NVIDIA_API_KEY`, `NVIDIA_API_BASE`).
+4. Deploy! Vercel will automatically use `vercel.json` and `requirements.txt` to build and serve the FastAPI application.
 
 ---
 
