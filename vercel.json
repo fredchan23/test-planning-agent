@@ -2,10 +2,7 @@
   "builds": [
     {
       "src": "api/index.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "50mb"
-      }
+      "use": "@vercel/python"
     }
   ],
   "routes": [
@@ -13,6 +10,5 @@
       "src": "/(.*)",
       "dest": "api/index.py"
     }
-  ],
-  "installCommand": "pip install litellm google-adk[extensions] aiohttp beautifulsoup4 fastapi uvicorn pydantic jinja2 python-dotenv"
+  ]
 }
