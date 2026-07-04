@@ -133,11 +133,19 @@ acli eval run
 ```
 
 ### Deploying to Vercel
-The frontend is configured to be deployed as a Serverless Function on Vercel. 
+The frontend is configured to be deployed as a Serverless Function on Vercel using the `@vercel/python` builder.
+
 1. Push this repository to GitHub, GitLab, or Bitbucket.
-2. Import the repository into Vercel.
-3. In the Vercel project settings, configure the **Environment Variables** (e.g. `NVIDIA_API_KEY`, `NVIDIA_API_BASE`).
-4. Deploy! Vercel will automatically use `vercel.json` and `requirements.txt` to build and serve the FastAPI application.
+2. In your Vercel dashboard, click **Add New** > **Project** and import the repository.
+3. Configure the **Project Settings** during import:
+   - **Framework Preset**: Leave as **Other** (Vercel automatically detects the `vercel.json` config).
+   - **Build Command**: Leave empty.
+   - **Output Directory**: Leave empty.
+   - **Install Command**: Leave empty (Vercel will automatically run `pip install -r requirements.txt`).
+4. Expand the **Environment Variables** section and add your API keys:
+   - `NVIDIA_API_KEY` = `your-nvidia-api-key`
+   - `NVIDIA_API_BASE` = `https://integrate.api.nvidia.com/v1`
+5. Click **Deploy**! Vercel will build the Python environment and route requests to the FastAPI application via the `test_planner_agent/app.py` handler.
 
 ---
 
