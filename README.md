@@ -172,7 +172,7 @@ docker run -p 8080:8080 --env-file .env test-planning-agent
 This project is licensed under the **Creative Commons Attribution 4.0 International** (CC BY 4.0) License.
 
 ### Citation
-```latex
+```text
 @misc{chan2026testmind,
   author       = {Fred Chan},
   title        = {TestMind: Agentic Test Planning with Google ADK 2.0},
