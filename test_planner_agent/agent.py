@@ -42,12 +42,16 @@ else:
     os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "False"
 
 # Initialize model
+extra_kwargs = {}
+if "gemma-4" in MODEL_NAME.lower():
+    extra_kwargs["chat_template_kwargs"] = {"enable_thinking": True}
+
 llm_model = LiteLlm(
     model=MODEL_NAME,
     api_key=NVIDIA_API_KEY,
     api_base=NVIDIA_API_BASE,
     retry_options=types.HttpRetryOptions(attempts=3),
-    chat_template_kwargs={"enable_thinking": True}
+    **extra_kwargs
 )
 
 # 1. Parse Input Node

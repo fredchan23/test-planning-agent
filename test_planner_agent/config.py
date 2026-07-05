@@ -8,7 +8,7 @@ except ImportError:
 
 # Default values
 DEFAULT_SUT_URL = "https://healthspan.assurecraft.org"
-MODEL_NAME = "openai/google/gemma-4-31b-it"
+MODEL_NAME = os.environ.get("MODEL_NAME", "openai/google/gemma-4-31b-it")
 NVIDIA_API_KEY = os.environ.get("NVIDIA_API_KEY")
 NVIDIA_API_BASE = os.environ.get("NVIDIA_API_BASE", "https://integrate.api.nvidia.com/v1")
 

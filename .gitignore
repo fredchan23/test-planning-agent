@@ -100,3 +100,4 @@ Thumbs.db
 # Project specific evaluation / trace artifacts
 artifacts/
 docs/*.md
+output/
