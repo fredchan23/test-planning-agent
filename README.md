@@ -26,15 +26,29 @@ TestMind bridges this documentation gap. By accepting a live application URL (Sy
 
 TestMind is powered by a multi-agent sequential workflow built with Google ADK 2.0 (`google-adk[gcp]`).
 
-```mermaid
-graph TD
-    Start([START]) --> parse_input[1. parse_input (Deterministic)]
-    parse_input --> run_crawler[2. run_crawler (BeautifulSoup4 + aiohttp)]
-    run_crawler --> intent_mapper[3. intent_mapper (LlmAgent)]
-    intent_mapper --> scenario_matrix[4. scenario_matrix_agent (LlmAgent)]
-    scenario_matrix --> element_grounding[5. element_grounding_agent (LlmAgent)]
-    element_grounding --> compile_output[6. compile_output (Deterministic)]
-    compile_output --> End([Test Plan Generated])
+```
+  [START]
+     │
+     ▼
+  [1. parse_input (Deterministic)]
+     │
+     ▼
+  [2. run_crawler (BeautifulSoup4 + aiohttp)]
+     │
+     ▼
+  [3. intent_mapper (LlmAgent)]
+     │
+     ▼
+  [4. scenario_matrix_agent (LlmAgent)]
+     │
+     ▼
+  [5. element_grounding_agent (LlmAgent)]
+     │
+     ▼
+  [6. compile_output (Deterministic)]
+     │
+     ▼
+  [Test Plan Generated]
 ```
 
 ### ADK 2.0 Sequential Workflow Nodes
